@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Archive page
+ * Tag archive
  * 
  * @package    Wordpress
  * @subpackage Pistole
  */
 ?>
 
-<p>Archive template</p>
+<p>Tags archive</p>

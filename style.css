@@ -111,10 +111,16 @@ body {
     display: none !important;
     visibility: hidden;
 }
+.nav-main {
+    margin: 0;
+    padding: 0;
+}
 .nav-main li {
     text-align: center;
     margin: .5em 0;
     font-size: 1.4em;
+    list-style: none;
+    padding: 0;
 }
 .nav-main a {
     text-decoration: none;
@@ -171,8 +177,6 @@ body {
     font-size: .8em;
     font-style: italic;
 }
-
-
 
 /* page navigation */
 .navbar {
