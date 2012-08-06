@@ -10,7 +10,7 @@
  */
 get_header(); ?>
 
-<section class="archive content">
+<section class="archive-full content">
 
     <h2 id="page-title">Das volle Archiv</h2>
     <ul>
