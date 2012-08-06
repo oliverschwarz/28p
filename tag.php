@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Category archive
+ * Tag archive
  * 
  * This is the category archive and displays all posts in a chosen category.
  * 
@@ -13,12 +13,13 @@ get_header(); ?>
 
 <section class="archive-full content">
 
-    <h2 id="page-title">Thema: <?php echo single_cat_title(); ?></h2>
+    <h2 id="page-title">Tag: <?php echo single_tag_title(); ?></h2>
 
 <?php
 
-    $thiscat = get_category(get_query_var('cat'), false);
-    $allposts = get_posts('numberposts=-1&category=' . $thiscat->cat_ID);
+
+    $thistag = get_query_var('tag');
+    $allposts = get_posts('numberposts=-1&tag=' . $thistag);
     if (count($allposts) > 0): ?>
 
     <ul>
