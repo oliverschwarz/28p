@@ -217,7 +217,7 @@ body {
     margin: 2em 0;
 }
 .page .article {
-
+    padding-bottom: 2em;
 }
 .post .taxonomy {
     margin: 1em 0;
