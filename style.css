@@ -360,23 +360,23 @@ footer li:last-child {
     border: 0 none;
 }
 
-.archive {
+.archive-full {
     margin-bottom: 2em;
 }
-.archive ul {
+.archive-full ul {
     margin: 0;
     padding: 0;
     list-style: none;
     text-align: center;
 }
-.archive h3 {
+.archive-full h3 {
     font-style: italic;
     font-weight: normal;
 }
-.archive li li {
+.archive-full li {
     margin: .5em 0;
 }
-.archive li a {
+.archive-full li a {
     text-decoration: none;
 }
 
@@ -405,7 +405,7 @@ footer li:last-child {
     .post-content pre { font-size: .7em; }
     
     /* archive */
-    .archive ul { text-align: left; }
+    .archive-full ul { text-align: left; }
 }
 
 @media only screen and (min-width: 1028px) {
