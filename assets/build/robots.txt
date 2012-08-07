@@ -1,2 +1,4 @@
 # robotstxt.org/
 User-agent: *
+Disallow: /wp-content/cache/
+Allow: /

@@ -62,13 +62,44 @@
 
 FileETag None
 
-# BEGIN WordPress
+
+
+<IfModule mod_rewrite.c>
+# ENGINE ON
+RewriteEngine On
+
+# GZIP FILE
+<IfModule mod_mime.c>
+RewriteCond %{REQUEST_URI} /$
+RewriteCond %{REQUEST_URI} !^/wp-admin/.*
+RewriteCond %{REQUEST_METHOD} !=POST
+RewriteCond %{QUERY_STRING} =""
+RewriteCond %{HTTP_COOKIE} !(comment_author|wp-postpass|wordpress)_
+RewriteCond %{HTTP:Accept-Encoding} gzip
+RewriteCond %{DOCUMENT_ROOT}/wp-content/cache/cachify/%{HTTP_HOST}%{REQUEST_URI}/index.html.gz -f
+RewriteRule ^(.*) /wp-content/cache/cachify/%{HTTP_HOST}/$1/index.html.gz [L]
+
+AddType text/html .gz
+AddEncoding gzip .gz
+</IfModule>
+
+# HTML FILE
+RewriteCond %{REQUEST_URI} /$
+RewriteCond %{REQUEST_URI} !^/wp-admin/.*
+RewriteCond %{REQUEST_METHOD} !=POST
+RewriteCond %{QUERY_STRING} =""
+RewriteCond %{HTTP_COOKIE} !(comment_author|wp-postpass|wordpress)_
+RewriteCond %{DOCUMENT_ROOT}/wp-content/cache/cachify/%{HTTP_HOST}%{REQUEST_URI}/index.html -f
+RewriteRule ^(.*) /wp-content/cache/cachify/%{HTTP_HOST}/$1/index.html [L]
+</IfModule>
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{HTTP_USER_AGENT} !FeedBurner    [NC]
 RewriteCond %{HTTP_USER_AGENT} !FeedValidator [NC]
 RewriteRule ^feed/?([_0-9a-z-]+)?/?$ http://feeds.feedburner.com/28pistole/fnFg [R=302,NC,L]
 </IfModule>
+# BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
