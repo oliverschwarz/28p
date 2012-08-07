@@ -65,11 +65,16 @@ FileETag None
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} !FeedBurner    [NC]
+RewriteCond %{HTTP_USER_AGENT} !FeedValidator [NC]
+RewriteRule ^feed/?([_0-9a-z-]+)?/?$ http://feeds.feedburner.com/28pistole/fnFg [R=302,NC,L]
+</IfModule>
+<IfModule mod_rewrite.c>
+RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
-
 # END WordPress
