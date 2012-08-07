@@ -24,7 +24,7 @@
 
 ?></title>
 <meta name="description" content="<?php pistole_get_meta_description($post); ?>">
-<meta name="author" content="">
+<meta name="author" content="Oliver Schwarz">
 <meta name="DC.title" content="<?php bloginfo('name'); ?>">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="all, index, follow">

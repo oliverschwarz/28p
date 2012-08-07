@@ -133,6 +133,7 @@ body {
     border: 1px solid #d1d1d1;
     font-size: 1.3em;
     height: 31px;
+    width: 10em;
 }
 #searchsubmit {
     border: 0 none;
@@ -180,7 +181,7 @@ body {
 
 /* page navigation */
 .navbar {
-    background: #ddd;
+    background: #ccc;
     padding: .5em 0;
 }
 
@@ -308,9 +309,7 @@ body {
     display: block;
     padding: .2em;
     background-color: #eee;
-}
-#respond textarea {
-    max-width: 100%;
+    max-width: 95%;
 }
 #submit {
     padding: .3em .4em;
