@@ -131,8 +131,9 @@ if (!function_exists('pistole_time_since')) {
         if (is_int($timestamp) === false) {
             return;
         }
-
-        $diff = date('U') - $timestamp;
+        
+        $diff = current_time('timestamp') - $timestamp;
+        
         if ($diff < 3600) {
             $minutes = (int)floor($diff/60);
             $label = ($minutes > 1) ? 'Minuten' : 'Minute';
