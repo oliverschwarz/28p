@@ -101,7 +101,7 @@ if (!function_exists('pistole_get_full_archive')) {
             // build post
             $singlepost = new stdClass();
             $singlepost->title = $post->post_title;
-            $singlepost->permalink = get_permalink($post->ID);
+            $singlepost->permalink = get_permalink($post);
 
 
             $full_archive[$yearmonth]['posts'][] = $singlepost;
