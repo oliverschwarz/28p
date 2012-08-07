@@ -23,13 +23,20 @@
     bloginfo('description');
 
 ?></title>
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="description" content="<?php pistole_get_meta_description($post); ?>">
+<meta name="author" content="Oliver Schwarz">
 <meta name="DC.title" content="<?php bloginfo('name'); ?>">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="all, index, follow">
-<link rel="author" href="humans.txt" />
+<link rel="author" href="/humans.txt" />
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+
+<!-- Touch icons Android / Apple -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
+
 <?php wp_head(); ?>
 
 </head>
