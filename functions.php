@@ -66,19 +66,19 @@ if (!function_exists('pistole_get_meta_description')) {
      */
     function pistole_get_meta_description($post, $print = true)
     {
-        $default = '';
-        if (!isset($post->ID) || $post->ID < 1) {
-            return $default;
+        $default = '28pistole ist das private Weblog von Oliver Schwarz. Oliver schreibt &uuml;ber Usability, Web design, Games und das Internetz. Manchmal Deutsch, manchmal Englisch.';
+        if (!isset($post->ID) || $post->ID < 1 || !is_single()) {
+            echo $default;
+            return;
         }
         $meta = get_post_meta($post->ID, 'meta-description', true);
         if ($meta == '') {
-            return $default;
-        }
-        if ($print == true) {
-            echo $meta;
+            echo $default;
             return;
         }
-        return $meta;
+        
+        echo $meta;
+        return;
     }
 
 }
@@ -133,20 +133,22 @@ if (!function_exists('pistole_time_since')) {
         }
         
         $diff = current_time('timestamp') - $timestamp;
-        
-        if ($diff < 3600) {
+
+        if ($diff < 300) {
+            $timesince = 'Gerade eben';
+        } else if ($diff < 3600) {
             $minutes = (int)floor($diff/60);
             $label = ($minutes > 1) ? 'Minuten' : 'Minute';
             $timesince = sprintf('Vor %d %s', $minutes, $label);
-        } elseif ($diff < 3600 * 24) {
+        } else if ($diff < 3600 * 24) {
             $hours = (int)floor($diff/60/60);
             $label = ($hours > 1) ? 'Stunden' : 'Stunde';
             $timesince = sprintf('Vor %d %s', $hours, $label);
-        } elseif ($diff < 3600 * 24 * 20) {
+        } else if ($diff < 3600 * 24 * 20) {
             $days = (int)floor($diff/60/60/24);
             $label = ($days > 1) ? 'Tagen' : 'Tag';
             $timesince = sprintf('Vor %d %s', $days, $label);
-        } elseif ($diff < 3600 * 24 * 28) {
+        } else if ($diff < 3600 * 24 * 28) {
             $weeks = (int)floor($diff/60/60/24/7);
             $label = ($weeks > 1) ? 'Wochen' : 'Woche';
             $timesince = sprintf('Vor %d %s', $weeks, $label);
