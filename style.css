@@ -231,9 +231,14 @@ body {
 }
 
 .post-content {
-    /*text-align: justify;*/
     color: #000;
     /*font-size: 1.1em; */
+}
+.post-content p {
+    text-align: justify;
+}
+.post-content li {
+    text-align: left;
 }
 .post-content figure {
     margin: 1em 0;
