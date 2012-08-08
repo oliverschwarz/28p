@@ -101,7 +101,7 @@ if (!function_exists('pistole_get_full_archive')) {
             // build post
             $singlepost = new stdClass();
             $singlepost->title = $post->post_title;
-            $singlepost->permalink = get_permalink($post->ID);
+            $singlepost->permalink = get_permalink($post);
 
 
             $full_archive[$yearmonth]['posts'][] = $singlepost;
@@ -253,6 +253,46 @@ html;
             echo $output;
         }
     }
+    
+}
+
+if (!function_exists('pistole_custom_header')) {
+    
+    /**
+     * Custom header
+     * 
+     * Sets up custom header components to be hooked into
+     * the wp_head() function.
+     * 
+     * @return void
+     */
+    function pistole_custom_header()
+    {
+
+        $output = '';
+        
+        if (!current_user_can('level_10')) {
+            $output .= <<<html
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+_gaq.push (['_gat._anonymizeIp']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+html;
+        }
+        
+        echo $output;
+        
+    }
+    
+    // add custom header
+    add_action('wp_head', 'pistole_custom_header');
     
 }
 
