@@ -1,3 +1,15 @@
+/*
+Theme Name: 28p
+Theme URI: http://github.com/oliverschwarz/28p
+Author: Oliver Schwarz
+Author URI: http://oliverschwarz.info/
+Description: The 28p Wordpress theme is a lightweight, simple and responsive theme for the personal website of Oliver Schwarz.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: lightweight, responsive, minimalistic, one-column
+Text Domain: 28p
+*/
 /* h5bp */
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}
 audio,canvas,video{display:inline;zoom:1;}
@@ -63,14 +75,12 @@ body {
     text-align: left;
     padding: 0 1em;
 }
-[role=banner] h1, [role=banner] h2 {
+[role=banner] h1 {
     float: left;
     font-size: 1.3em;
+    font-style: italic;
     font-weight: normal;
     margin: 0;
-}
-[role=banner] h1 {
-    font-style: italic;
 }
 [role=banner] a, [role=banner] a:visited {
     color: #fff;
@@ -79,19 +89,27 @@ body {
 [role=banner] h2 {
     color: #999;
     display: none !important;
+    float: left;
     font-size: .6em;
     font-style: italic;
-    line-height: 2em;
-    padding: .9em 0 0 3em;
+    font-weight: normal;
+    margin: 1.1em 0 0 3em;
     visibility: hidden;
 }
 
 /* toolbar */
 #toolbar {
+    overflow: hidden;
     background-color: #ddd;
-    padding: .5em 0;
- }
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -ms-transition: height 0.5s;
+    -o-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
 #mobile-menu-anchor {
+    margin: .2em 0 0;
     float: right;
 }
 #searchform label {
@@ -100,7 +118,6 @@ body {
 }
 .nav-main {
     margin: 0;
-    padding: 0;
 }
 .nav-main li {
     text-align: center;
@@ -124,7 +141,7 @@ body {
 }
 #searchsubmit {
     border: 0 none;
-    background: transparent url(assets/gfx/icon-search.png) center center no-repeat;
+    background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAYCAYAAADtaU2/AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAG9SURBVHjaxNbLK0RRHMBxj2xkMcaMBQ0ZhZJYjEJJiiULC0mRlKXyd3hka2WppJRkwWLyKjRZeC2IpmzUlPejMcn1PXVunc687pxh/OpTZ+499/ebczuPm29ZVt5/RIGDPhWYRBAR3OMOqxiGy6iyGHEKPizixoqPT1xgFq40eeKkuhnAueUs9lD/G4XFSK+05G+4xg7C8rcaB/BkU1i8tiUt6TZ6tH692NX6zWdTeAT3SrItlCZJ4Mam0vcZVaaF1/ElE4k/0JomSTsisr94bspJ4UTLqQGFsn2KUJqFcYQT2RbPNZmu41Klfesgx7dc33Z4TQtHlXaZw+2gRGm/mxYWr83eRxtRmSZHLeqU0V+a7lwTeFJmqti5CpJMEnF9QekbQ5fprC7XlkgUM/Br/WowJ7dOO0JO13F+ktOpWR4KbuXasZzBD/AgIKkxiJVsD4kBPFqZxRq82R4SQgf2MyweRLXpq1ajGJ0Ygh9FiCGMZfgwrZ3LhxhLOcMzPUeTGMeLNvJjtJi+6kyM4VUrfoa2vy4sjOJdKy6+Xrr/urA98g+t+EYuCusjF7tgf64K2x8U4jOpL9H9HwEGAEgYPNRD9uhkAAAAAElFTkSuQmCC) center center no-repeat;
     text-indent: -9999px;
     display: inline-block;
     width: 34px;
@@ -368,14 +385,11 @@ footer li:last-child {
     text-decoration: none;
 }
 
-@media only screen and (max-width: 35em) and (orientation:landscape) {
-    body { font-size: 1.1em; }
-}
-
 /* sizes */
-@media only screen and (min-width: 35em) {
+@media only screen and (min-width: 45em) {
     body { font-size: 1.5em; }
-    .toolbar, .home .excerpt { display: block !important; visibility: visible; }
+    [role=banner] h2 { display: block !important; visibility: visible; }
+    .home .excerpt { display: block !important; visibility: visible; }
     .home .articles { padding-top: 1em; }
     .home article time { font-size: .7em; }
     .single .post h2, .single .post time, #page-title { text-align: left; }
@@ -383,11 +397,11 @@ footer li:last-child {
     
     /* toolbar behaviour */
     #mobile-menu-anchor { display: none !important; visibility: hidden; }
-    #searchform { margin: 0; float: right; line-height: 1em; }
+    #searchform { margin: .5em 0; float: right; line-height: 1em; }
     #searchform input[type=text] { width: 200px; font-size: 1em; }
     #page-title { margin: 1.5em 0 0.4em; }
-    #toolbar { display: block !important; }
-    .nav-main { float: left; }
+    #toolbar { display: block !important; height: auto !important; }
+    .nav-main { float: left; padding: .6em 0; }
     .nav-main li { float: left; margin: 0 1em 0 0; font-size: 1em; }
     .nav-main a { display: inline-block; float: left; text-decoration: none; }
     
@@ -396,10 +410,6 @@ footer li:last-child {
     
     /* archive */
     .archive-full ul { text-align: left; }
-}
-
-@media only screen and (min-width: 1028px) {
-    [role=banner] h2 { display: block !important; visibility: visible; } 
 }
 
 /* h5bp */
