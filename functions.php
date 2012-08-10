@@ -270,6 +270,14 @@ if (!function_exists('pistole_custom_header')) {
     {
 
         $output = '';
+
+        // add html5 enabling for IE < 9
+        $output .= <<<html
+<!--[if lt IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+html;
+    
         
         if (!current_user_can('level_10')) {
             $output .= <<<html
@@ -287,7 +295,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 html;
         }
         
-        echo $output;
+        //echo $output;
         
     }
     
@@ -309,9 +317,7 @@ if (!function_exists('pistole_custom_footer')) {
      */
     function pistole_custom_footer()
     {
-        echo '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>' . "\n";
-        echo "<script>window.jQuery || document.write('<script src=\"" . get_bloginfo('template_url') . "/assets/js/jquery-1.7.2.min.js\"><\/script>')</script>";
-        echo '<script src="' . get_bloginfo('template_url') . '/assets/js/functions.js"></script>';
+        echo '<script src="' .  get_bloginfo('template_url') . '/assets/js/functions.js"></script>';
     }
 
     // Apply footer

@@ -29,7 +29,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="all, index, follow">
 <link rel="author" href="/humans.txt" />
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
 
 <!-- Touch icons Android / Apple -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png">
@@ -52,7 +52,7 @@
 
 </header>
 
-<section id="toolbar" class="clearfix" style="display:none;">
+<section id="toolbar" class="clearfix" style="height:0px;">
 
     <div class="content">
         
