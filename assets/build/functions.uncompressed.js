@@ -8,13 +8,11 @@
     thandle.addEventListener('click', function(e){
         e.preventDefault();
         if (toolbar.style.height == '0px') {
-            console.log('SuperSize');
             toolbar.style.height = 'auto';
             if (toolbar.clientHeight != 0) {
                 toolbar.style.height = toolbar.clientHeight + 'px';
             }
         } else {
-            console.log('Shrink');
             toolbar.style.height = '0px';
         }
     });
