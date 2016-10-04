@@ -1,8 +1,0 @@
-/* SITE */
-Site name: 28pistole
-Site URL: http://28pistole.de/
-Author: Oliver Schwarz
-Twitter: @oliverschwarz
-Location: Wermelskirchen, Germany
-Components: Wordpress, jQuery
-Software: NetBeans IDE 7.2
